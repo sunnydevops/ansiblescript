@@ -1,0 +1,8 @@
+---
+- hosts: appserver
+  become: yes
+  tasks:
+  - name: "Stop Nginx service"
+    service:
+      name: nginx
+      state: stopped

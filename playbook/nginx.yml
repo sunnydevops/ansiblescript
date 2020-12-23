@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+  - name: "Installing apache"
+    package:       # "package " module will install the nginx on all the linux flavour, no need to use "yum" ans "apt-get" module.
+      name: nginx
+      state: present

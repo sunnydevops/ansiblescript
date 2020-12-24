@@ -13,12 +13,13 @@
         path: /app/core/nginxweb/lib/nginx
         state: directory
         mode: '0755'
-    - name : copy nginx zip file from src to destination
-      copy:
-        src: /home/ansible/dum/nginx-1.14.2.tar.gz
-        dest: /app/core/
-        remote_src: yes
-        
-        
-
-    
+ #   - name : copy nginx zip file from src to destination
+ #     copy:
+ #       src: /home/ansible/dum/nginx-1.14.2.tar.gz
+ #       dest: /app/core/
+ #       remote_src: yes
+    - name: extract tar.gz file
+      unarchive:  
+       src: /home/ansible/dum/nginx-1.14.2.tar.gz
+       dest: /app/core/  
+       remote_src: yes  

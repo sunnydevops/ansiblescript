@@ -15,8 +15,8 @@
         mode: '0755'
     - name : copy nginx zip file from src to destination
       copy:
-        src: /home/ansible/dum/nginx*
-        dest: /app/core
+        src: /home/ansible/dum/nginx-1.14.2.tar.gz
+        dest: /app/core/
         remote_src: yes
         
         

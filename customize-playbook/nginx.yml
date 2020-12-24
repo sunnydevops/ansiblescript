@@ -13,11 +13,11 @@
         path: /app/core/nginxweb/lib/nginx
         state: directory
         mode: '0755'
- #   - name: copy nginx files
-  #    command: cp -r /home/{{ user }}/dist/{{ item }} /usr/share/nginx/html
-  #    with_items:
-   #     - "index.html"
-    #    - "static/"
+    - name : copy nginx zip file from src to destination
+      copy:
+        src: /home/ansible/dum/nginx*
+        dest: /app/core
+        remote_src: yes
         
         
 

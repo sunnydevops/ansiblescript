@@ -1,0 +1,24 @@
+---
+- hosts: nginx
+  become: yes
+  tasks:
+    - name: Create a directory if it does not exist
+      file:
+       path: /app/core
+       state: directory
+       mode: '0755'
+
+    - name: Create the folder inside /app/core directory
+      file:
+        path: /app/core/nginxweb/lib/nginx
+        state: directory
+        mode: '0755'
+ #   - name: copy nginx files
+  #    command: cp -r /home/{{ user }}/dist/{{ item }} /usr/share/nginx/html
+  #    with_items:
+   #     - "index.html"
+    #    - "static/"
+        
+        
+
+    

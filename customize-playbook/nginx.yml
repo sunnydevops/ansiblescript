@@ -25,5 +25,5 @@
        remote_src: yes
 
     - name: Go to the folder and execute command
-      command: chdir=/app/core/nginx-1.14.2/ls
+      command: chdir=/app/core/nginx-1.14.2 ls
        

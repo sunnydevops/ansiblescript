@@ -1,8 +1,8 @@
 ---
-hosts: all
-become: yes
-tasks:
-- name: install webserver
-  package:
-    name: "{{package_name}}"
-    state: present
+- hosts: all
+  become: yes
+  tasks:
+  - name: install webserver
+    package:
+      name: "{{package_name}}"
+      state: present

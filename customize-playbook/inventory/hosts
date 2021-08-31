@@ -1,7 +1,0 @@
-[nginx]
-ip-172-31-62-77.ec2.internal   
-
-
-[apache]
-ip-172-31-29-30.ec2.internal
-ip-172-31-27-190.ec2.internal

@@ -1,8 +1,0 @@
----
-- hosts: appserver
-  become: yes
-  tasks:
-  - name: "Start Nginx service"
-    service:
-      name: nginx
-      state: started

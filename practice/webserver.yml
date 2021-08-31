@@ -2,7 +2,36 @@
 - hosts: all
   become: yes
   tasks:
+  #dynamics variable example
   - name: install webserver
     package:
       name: "{{package_name}}"
       state: present
+
+#conditionals example with when
+  - name: install python
+    apt:
+      name: python3
+      state: present
+    when: ansible_os_family == "ubuntu"
+
+#loop with "with_item"
+  - name: install software
+    package:
+      name: {{item}}
+      state: present
+    with_items:
+    - git
+    - tree
+    - nano
+
+#or we can use like,
+  - name: install software
+    package:
+      name: {{item}}
+      state: present
+    with_items: package
+
+
+
+    

@@ -1,0 +1,7 @@
+[app]
+ip-172-31-44-62.ap-south-1.compute.internal
+ip-172-31-45-209.ap-south-1.compute.internal
+ip-172-31-46-193.ap-south-1.compute.internal
+
+[db]
+ip-172-31-38-226.ap-south-1.compute.internal

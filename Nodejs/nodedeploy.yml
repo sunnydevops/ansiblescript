@@ -23,7 +23,7 @@
       mode: '0755'
   - name: download nodeapp
     get_url:
-      url: https://deb.nodesource.com/"{{ nodesource_version }}" -o nodesource_setup.sh
+      url: https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
       dest: "{{ folder_path}}"
       mode: 0440
   - name: Execute setup.sh file
@@ -33,4 +33,3 @@
     apt:
       name: nodejs
       state: present
-      

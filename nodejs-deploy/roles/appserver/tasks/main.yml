@@ -1,2 +1,34 @@
 ---
 # tasks file for appserver
+- name: create a folder
+  file:
+    name: "{{ folderpath}}"
+    state: directory
+    mode: 0755
+
+- name: download nodeapp
+  get_url:
+    url: https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+    dest: "{{ folderpath}}"
+    mode: 0440
+
+- name: Execute setup.sh file
+  shell: "{{folderpath }}nodesource_setup.sh/"
+  
+- name: install Node Js
+  apt:
+    name: nodejs
+    state: present
+
+- name: Copy files from /template/hello.js.j2
+  template:
+    src: "template/hello.js.j2"
+    dest: "{{ folderpath }}/hello.js.j2"
+
+- name: install pm2
+  npm:
+    name: pm2
+    global: yes
+
+- name : start node js app
+  command: "pm2 start {{folderpath}}/hello.js"

@@ -1,2 +1,15 @@
 ---
-# tasks file for comman
+# tasks file for comman for all the machine
+- name: update all the machine
+  apt:
+    update_cache: yes
+
+- name: Install package
+  packages:
+    name: "{{ item }}"
+    state: present
+  loop:
+  - git
+  - tree
+  - nano
+  

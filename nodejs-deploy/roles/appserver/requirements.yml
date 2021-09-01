@@ -1,0 +1,5 @@
+#redis roles from ansible glaxy
+- src: davidwittman.redis
+
+#mongo db drom ansible glaxy
+- src: community.mongodb

@@ -1,2 +1,12 @@
 ---
 # tasks file for webserver
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: copy file from /template/default.j2
+  template:
+    src: "/template/default.j2"
+    dest: "{{ location }}"
+  notify: Restart nginx

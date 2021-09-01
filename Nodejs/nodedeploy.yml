@@ -24,10 +24,10 @@
   - name: download nodeapp
     get_url:
       url: https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-      dest: "{{ folder_path}}"
+      dest: "{{ folderpath}}"
       mode: 0440
   - name: Execute setup.sh file
-    shell: "{{folder_path }}nodesource_setup.sh/"
+    shell: "{{folderpath }}nodesource_setup.sh/"
   
   - name: install Node Js
     apt:

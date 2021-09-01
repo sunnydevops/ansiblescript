@@ -33,3 +33,40 @@
     apt:
       name: nodejs
       state: present
+
+  - name: Copy files from /template/hello.js.j2
+    template:
+      src: "template/hello.js.j2"
+      dest: "{{ folderpath }}/hello.js.j2"
+
+  - name: install pm2
+    npm:
+      name: pm2
+      global: yes
+
+  - name : start node js app
+    command: "pm2 start {{folderpath}}/hello.js"
+
+
+- hosts: web
+  become: yes
+  vars:
+    appserver_ip: ec2-13-235-243-90.ap-south-1.compute.amazonaws.com
+    location: /etc/nginx/sites-available/default.js
+  tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: copy file from /template/default.j2
+    template:
+      src: "/template/default.j2"
+      dest: "{{ location }}"
+    notify: Restart nginx
+  handlers:
+  - name: Restart nginx
+    service: nginx
+    state: restarted
+
+

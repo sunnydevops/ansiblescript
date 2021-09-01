@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   roles:
-    - common
+    - comman
 
 - hosts: app
   become: yes

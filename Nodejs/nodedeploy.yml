@@ -1,0 +1,36 @@
+# Update all the machine
+---
+- hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+  - name: update all the machine
+    apt:
+      update_cache: yes
+
+# Install Node JS on App server
+
+- hosts: app
+  become: yes
+  vars:
+    folderpath: /home/ansible/nodesetup
+    nodesource_version: setup_16.x
+  tasks:
+  - name: create a folder
+    file:
+      name: "{{ folderpath}}"
+      state: directory
+      mode: '0755'
+  - name: download nodeapp
+    get_url:
+      url: https://deb.nodesource.com/"{{ nodesource_version }}" -o nodesource_setup.sh
+      dest: "{{ folder_path}}"
+      mode: 0440
+  - name: Execute setup.sh file
+    shell: "{{folder_path }}nodesource_setup.sh/"
+  
+  - name: install Node Js
+    apt:
+      name: nodejs
+      state: present
+      

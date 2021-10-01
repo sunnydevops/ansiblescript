@@ -7,7 +7,7 @@
       yum:
         name: ntp 
         state: present 
-      when: ansible_distribution == "Centos"
+      when: ansible_distribution == "CentOs"
     - name: Install NTP on Ubuntu
       yum:
         name: ntp 

@@ -2,11 +2,12 @@
 - name: Web-server
   hosts: web1
   become: yes
-  #vars:
-  #  maria_db:  mariadb
-   # mariadb_server: mariadb-server
-   # mysql_python: MySQL-python
-   # db_name: accounts
+  tasks:
+    - debug:
+        var: maria_db
+        var: db_name
+    - debug:
+        msg: "value of "{{maria_db, db_name"}}"
   tasks:
     - name: Install Apache httpd
       yum:

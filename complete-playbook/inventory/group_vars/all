@@ -1,0 +1,4 @@
+# variable access by all the hosts
+db_name: college
+db_user: admin
+db_pass: college123

@@ -7,9 +7,25 @@
       yum:
         name: ntp 
         state: present 
-      when: ansible_distribution == "CentOs"
+      when: ansible_distribution == "CentOS"
     - name: Install NTP on Ubuntu
       yum:
         name: ntp 
         state: present 
       when: ansible_distribution == "Ubuntu"
+
+    - name: Start and Enable NTP on centos
+      service:
+        name: ntpd
+        state: started
+        enabled: yes
+      when: ansible_distribution == "CentOS"
+
+    - name: Start and Enabled on Ubuntu
+      service:
+        name: ntp
+        state: started 
+        enabled: yes
+      when: ansible_distribution == "Ubuntu"
+
+

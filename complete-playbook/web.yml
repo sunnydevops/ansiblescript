@@ -7,7 +7,7 @@
         var: maria_db
         var: db_name
     - debug:
-        msg: "value of {{"maria_db, db_name"}}"
+        msg: "value of {{"db_name"}}"
   tasks:
     - name: Install Apache httpd
       yum:

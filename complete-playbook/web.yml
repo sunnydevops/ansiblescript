@@ -3,12 +3,6 @@
   hosts: web1
   become: yes
   tasks:
-    - debug:
-        var: maria_db
-        var: db_name
-    - debug:
-        msg: "value of {{"db_name"}}"
-  tasks:
     - name: Install Apache httpd
       yum:
         name: httpd

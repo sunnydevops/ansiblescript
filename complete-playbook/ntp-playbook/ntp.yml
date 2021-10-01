@@ -1,0 +1,10 @@
+---
+- name: IInstalling NTP
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install NTP on centos"
+      yum:
+        name: ntp 
+        state: present 
+      when: ansible_distribution=="Centos"

@@ -1,0 +1,28 @@
+---
+- name: Db-server
+  hosts: db
+  become: yes
+  tasks:
+    - name: Install MySql Db-server
+      yum:
+        name: "{{mariadb_server}}"
+        state: present 
+    - name: Start & Enable mariadb service
+      service:
+        name: "{{maria_db}}"
+        state: started
+        enabled: yes
+    - name : Install Python packages
+      yum:
+        name: "{{mysql_python}}"
+        state: present
+    - name : Create Database "accounts"
+      mysql_db:
+        name: "{{db_name}}"
+        state: present
+    - name: create db user "admin"
+      mysql_user:
+        name: "{{mysql_user}}"
+        password: "{{db_pass}}"
+        priv: '*.*:ALL'
+        state: present

@@ -1,0 +1,4 @@
+maria_db:  mariadb
+mariadb_server: mariadb-server
+mysql_python: MySQL-python
+db_name: school
